@@ -1,1 +1,62 @@
-This a Securly computer unblocker it uses a dns to prevent securly from downloading in the frist place this works on most chromebooks. Even if it does not unblock your computer it will 
+Securly Unblocker via Custom DNS on Chromebooks
+This uses NextDNS.io to block securly.com so Securly can't load or enforce rules. It works on many school Chromebooks—might fully unblock sites, or at least hide your browsing from teachers/admins.
+Important Notes Before Starting:
+
+NextDNS is free for basic use (up to 300,000 queries/month).
+School policies might override DNS or use a forced Chrome extension—results vary.
+Powerwashing deletes local files/settings/apps, but school stuff reloads on sign-in.
+At your own risk—schools might detect changes.
+
+Step-by-Step Guide
+
+Set Up Your Custom DNS with NextDNS.io and Get Your DoH URL
+Go to https://nextdns.io/ (use any browser, even on your phone).
+Sign up free (email + password—no card needed).
+It auto-creates a config—rename it if you want (e.g., "School Block").
+Go to the Denylist (or blocklist) section.
+Add: securly.com
+Add: *.securly.com (blocks all subdomains like logs.securly.com)
+
+Save.
+Now get your DoH URL (this is the secure/encrypted one Chrome loves):
+Go to the Setup tab (or main dashboard).
+Scroll to DNS-over-HTTPS section.
+You'll see something like: https://dns.nextdns.io/abc123 (the "abc123" is your unique ID—don't share it!).
+Copy that full URL (it might say "Append the name..." but you can use the base one without extras for now).
+If it shows IPv4 addresses too (like 45.90.xx.xx), note them as backup, but prioritize the DoH URL.
+
+
+Change DNS Settings on Your Chromebook (Optional fallback—DoH in next step is better)
+Click clock bottom right → gear icon (Settings).
+Click Network → your Wi-Fi name.
+“Name servers” → switch to Custom name servers.
+Primary/Secondary: paste your NextDNS IPv4 addresses from Setup page.
+Save. (But skip if using DoH below—it overrides this nicely.)
+
+Enable Secure DNS with Your DoH URL and Sync to Google Account (Required)
+In Settings → Privacy and security → Security.
+Turn ON Use secure DNS.
+Select With → Custom (or "Enter custom provider").
+Paste your full DoH URL from Step 1.
+This encrypts DNS queries and applies your blocklist reliably.
+
+Now sync it to your Google account so it sticks better (especially after powerwash):
+Go to Sync and Google services (under your account name or Privacy section).
+Turn Sync ON.
+Choose Sync everything (or at least include "Settings" / "Other stuff"—this syncs browser privacy settings like Secure DNS across sign-ins and devices).
+
+Why? Chrome syncs the Secure DNS choice via your Google account, so it reapplies automatically when you sign back in after reset.
+
+Powerwash the Chromebook
+Turn it off completely.
+Hold Esc + Refresh (circle arrow key) + Power all at once.
+Release Power when it starts, keep holding Esc + Refresh.
+On yellow exclamation/recovery screen, follow to Powerwash/reset.
+Confirm—let it wipe and reboot.
+
+Set It Up Again
+Connect to Wi-Fi, enter password.
+Sign in with school Google account.
+Sync should pull your Secure DNS + DoH URL automatically (check in Settings > Privacy and security > Security to confirm it's still on with your NextDNS URL).
+If it didn't sync or got reset, quickly redo Step 3 right away.
+Test a blocked site fast—Securly should be blocked/failed.
