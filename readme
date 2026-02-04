@@ -14,11 +14,10 @@ Full Step-by-Step Guide (Easiest Secure DNS Method First)
 Set Up NextDNS (Do this on any device/browser)
 Go to https://nextdns.io
 Sign up free (just email + password — no card needed)
-It creates a config automatically — you can rename it (e.g. "School Block")
-Go to Denylist (or blocklist)
-Add these two lines:
+It creates a config automatically
+Go to Denylist
+Add this line:
 securly.com
-*.securly.com
 Click Save
 Get Your DoH URL
 Go to the Setup tab
@@ -26,7 +25,7 @@ Scroll to DNS-over-HTTPS
 Copy the full URL that looks like: https://dns.nextdns.io/abc123 (abc123 is your unique ID — keep it private)
 
 
-Enable Secure DNS on the Chromebook (Easiest Method)
+Enable Secure DNS on the Chromebook (Easiest method but may not show up all the time)
 Open Chrome
 In the address bar type: chrome://settings/security and press Enter
 Scroll to Use secure DNS
@@ -40,6 +39,7 @@ If you see "This setting is disabled on managed browsers" → school policy bloc
 Optional Fallback: Plain DNS on Wi-Fi (if DoH is blocked)
 Clock (bottom right) → Settings gear
 Go to Network → click your connected Wi-Fi
+Click Network
 Find Name servers → change to Custom name servers
 Paste your NextDNS IPv4 addresses (found on the Setup page, usually two like 45.90.28.0 and 45.90.30.0)
 Save
