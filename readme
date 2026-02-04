@@ -1,8 +1,7 @@
 LEGAL DISCLAIMER
 Use this guide at your own risk. Only proceed if you have explicit permission from your school or IT administrator to modify network/DNS settings on the device. Attempting to bypass school filters or monitoring tools may violate school policies and could lead to disciplinary action. The author assumes no responsibility for any consequences.
 Securly Unblocker via Custom DNS on Chromebooks
-This uses NextDNS.io to block securly.com domains so Securly may fail to load cloud-based rules or log activity properly.
-It works inconsistently on school Chromebooks — often only partially or not at all due to management policies and Securly fallbacks.
+This uses NextDNS.io to block securly.com domains so Securly may fail to load cloud-based rules or log activity properly. It works inconsistently on school Chromebooks — often only partially or not at all due to management policies and Securly fallbacks.
 Important Notes
 
 NextDNS free tier: up to 300,000 queries/month.
@@ -21,24 +20,19 @@ Add these two lines:
 securly.com
 *.securly.com
 Click Save
-
 Get Your DoH URL
 Go to the Setup tab
 Scroll to DNS-over-HTTPS
-Copy the full URL that looks like:
-https://dns.nextdns.io/abc123
-(abc123 is your unique ID — keep it private)
+Copy the full URL that looks like: https://dns.nextdns.io/abc123 (abc123 is your unique ID — keep it private)
+
 
 Enable Secure DNS on the Chromebook (Easiest Method)
 Open Chrome
-In the address bar type:
-chrome://settings/security
-and press Enter
+In the address bar type: chrome://settings/security and press Enter
 Scroll to Use secure DNS
 Turn the toggle ON
 Change from "With your current service provider" to With → Custom
-Paste your NextDNS DoH URL:
-https://dns.nextdns.io/abc123
+Paste your NextDNS DoH URL: https://dns.nextdns.io/abc123
 Hit Enter / Apply
 Done — it starts working immediately (no restart needed)
 If you see "This setting is disabled on managed browsers" → school policy blocks it and this won’t work.
@@ -51,6 +45,22 @@ Paste your NextDNS IPv4 addresses (found on the Setup page, usually two like 45.
 Save
 (Note: DoH is much harder for schools to block, so try that first.)
 
+Get Your Wi-Fi Password BEFORE Powerwash (So You Can Connect After Reset)
+While still signed in and connected to Wi-Fi, open Chrome
+Type chrome://sync-internals in the address bar and press Enter
+Click the Search tab at the top
+In the search box, type "wifi" → hit Search
+Look for the entry with your network's passphrase (the long random string of letters and numbers)
+Copy that entire encrypted string
+To turn it into your real Wi-Fi password:
+Open the file called wifipassword.html
+Paste the encrypted string into the box on the page
+Click Get Wifi Password
+It will show your actual Wi-Fi password
+
+Write it down or save it somewhere safe (like your phone notes) so you can use it during setup after powerwash
+(Note: This only works if Wi-Fi networks were synced to your Google account before. If nothing useful shows up, you'll need the password another way.)
+
 Powerwash (Recommended to Reset & Re-Apply)
 Turn off the Chromebook completely
 Hold down Esc + Refresh (the circle arrow key) + Power button at the same time
@@ -59,19 +69,15 @@ Select Powerwash → Continue → confirm the wipe
 It will restart and wipe everything
 
 After Powerwash
-Connect to Wi-Fi
+Connect to Wi-Fi using the password you saved from step 4
 Sign in with your school Google account
-As soon as you’re logged in, go straight back to:
-chrome://settings/security
+As soon as you’re logged in, go straight back to: chrome://settings/security
 Check if Use secure DNS is still ON with your NextDNS URL
-If it got reset or disabled → quickly redo step 3 (if the setting is still available)
+If it got reset or disabled → quickly redo step 2 (if the setting is still available)
 Note: Secure DNS does not sync through your Google account on managed devices — you must set it again after sign-in.
 
 Test It
-Open a new tab and go to:
-https://securly.com
-or https://logs.securly.com
-→ It should fail to load (DNS error like NXDOMAIN or timeout)
+Open a new tab and go to: https://securly.com or https://logs.securly.com → It should fail to load (DNS error like NXDOMAIN or timeout)
 Go to https://test.nextdns.io → it should show your config and blocked domains
 Try some normally blocked sites (YouTube, games, etc.) — see if Securly lets them through because it can’t reach its servers
 Check your NextDNS dashboard (my.nextdns.io) — look for blocked queries from securly.com
