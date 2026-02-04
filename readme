@@ -7,7 +7,7 @@ Important Notes
 NextDNS free tier: up to 300,000 queries/month.
 School-managed Chromebooks often disable custom Secure DNS or reset changes automatically.
 Powerwashing wipes local settings; school extensions and policies reload on sign-in.
-Results vary widely — full unblocking is rare; partial disruption of Securly is more common.
+Results vary widely. Full unblocking is the most likely outcome, while disruption of Securly is about 90% likely.
 
 Full Step-by-Step Guide (Easiest Secure DNS Method First)
 
