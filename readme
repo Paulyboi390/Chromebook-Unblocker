@@ -61,7 +61,7 @@ It will show your actual Wi-Fi password
 Write it down or save it somewhere safe (like your phone notes) so you can use it during setup after powerwash
 (Note: This only works if Wi-Fi networks were synced to your Google account before. If nothing useful shows up, you'll need the password another way.)
 
-Powerwash (Recommended to Reset & Re-Apply)
+Powerwash (90% of the time this is manditory)
 Turn off the Chromebook completely
 Hold down Esc + Refresh (the circle arrow key) + Power button at the same time
 Release Power when it starts; keep holding Esc + Refresh until you see the yellow recovery screen
@@ -81,3 +81,5 @@ Open a new tab and go to: https://securly.com or https://logs.securly.com → It
 Go to https://test.nextdns.io → it should show your config and blocked domains
 Try some normally blocked sites (YouTube, games, etc.) — see if Securly lets them through because it can’t reach its servers
 Check your NextDNS dashboard (my.nextdns.io) — look for blocked queries from securly.com
+
+If you find any bugs, please don’t hesitate to report them via GitHub Issues.
